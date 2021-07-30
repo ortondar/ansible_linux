@@ -1,0 +1,16 @@
+---
+- name: "File Copy"
+  hosts: all
+  become: true
+  become_user: root
+  gather_facts: yes
+  tasks:
+
+  - name: Copy a new file into place
+    copy:
+      remote_src: no
+      src: /tmp/testmotd
+      dest: /tmp/testmotd
+      owner: root
+      group: root
+      mode: '0644'
